@@ -1,0 +1,9 @@
+<div class="flex flex-row justify-between">
+
+    {{quests.length == 0 ? "no quests found": null}}
+    <!-- buttons for each quest -->
+    <div class="flex-col w-1/3 m-20">
+        <button class="btn btn-ghost" *ngFor="let quest of quests; let i = index" (click)="setSelectedIdx(i)">{{quest.title}}</button>
+    </div>
+    <app-quest [quest]="quests[selectedIdx]"></app-quest>
+</div>
