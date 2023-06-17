@@ -7,50 +7,90 @@ import Quest from "src/common/interfaces/quest.interface";
   styleUrls: ["./quests.component.scss"],
 })
 export class QuestsComponent implements OnInit {
-  ngOnInit(): void {
-    let quest: Quest = {
-      title: "The Lost Artifact",
-      description:
-        "<p>The great treasure hunter, Indiana Jones, has recently discovered a mysterious artifact buried deep within the ruins of an ancient temple. The artifact, known as the <em>Eye of Horus</em>, is said to possess incredible powers that could change the course of history. However, just as he was about to retrieve it, the temple suddenly collapsed, trapping the Eye of Horus inside.</p><p>Now, <strong>Indiana Jones needs your help</strong> to retrieve the artifact before it falls into the wrong hands. You must travel through treacherous jungles, navigate deadly traps, and face off against ruthless enemies to retrieve the Eye of Horus. Will you be able to overcome these challenges and retrieve the artifact before it's too late?</p>",
-      goal: "Retrieve the Eye of Horus artifact from the ruins of the ancient temple.",
-      steps: [
-        "Travel to the jungle where the temple is located.",
-        "Find a way into the temple and navigate through its deadly traps.",
-        "Face off against the temple's guardians to retrieve the artifact.",
-        "Escape the temple before it collapses and traps you inside forever.",
-      ],
-      rewards: [
-        "The Eye of Horus artifact, which possesses incredible powers.",
-        "A significant amount of gold and treasure from the temple.",
-        "The admiration and respect of Indiana Jones himself.",
-      ],
-      isCompleted: false,
-    };
-    let quest1: Quest = {
-      title: "The Hunt for the Golden Fleece",
-      description:
-        "<p>The legendary Golden Fleece has been discovered on a remote island, but it is guarded by a powerful sorcerer and his army of mythical creatures. Your task is to defeat the sorcerer and claim the Golden Fleece for yourself.</p>",
-      goal: "Defeat the sorcerer and claim the Golden Fleece.",
-      steps: [
-        "Travel to the remote island where the Golden Fleece is located.",
-        "Fight your way through the sorcerer's army of mythical creatures.",
-        "Confront the sorcerer and defeat him in a battle of magic and skill.",
-        "Claim the Golden Fleece and return home victorious.",
-      ],
-      rewards: [
-        "The legendary Golden Fleece, which is said to possess incredible powers.",
-        "Recognition and fame as a hero who defeated a powerful sorcerer.",
-        "A significant amount of treasure and artifacts from the island.",
-      ],
-      isCompleted: false,
-    };
-
-    this.quests.push(quest, quest1);
-  }
   quests: Quest[] = [];
   selectedIdx: number = 0;
+  ngOnInit(): void {
+    this.quests = [
+      {
+        title: "Read 10 Books",
+        description:
+          "Challenge yourself to read 10 books in the next 3 months.",
+        goal: "Read 10 books",
+        steps: [
+          "Create a reading list",
+          "Allocate at least 30 minutes per day for reading",
+          "Track progress and update the list",
+          "Reflect on each book read",
+        ],
+        rewards: [
+          "Expanded knowledge",
+          "Improved vocabulary",
+          "Enhanced critical thinking",
+        ],
+        isCompleted: false,
+      },
+      {
+        title: "Learn a New Language",
+        description:
+          "Embark on a language learning journey and become proficient in a new language.",
+        goal: "Learn a new language",
+        steps: [
+          "Choose a language to learn",
+          "Find language learning resources (books, apps, courses)",
+          "Practice speaking and writing regularly",
+          "Immerse yourself in the language (watch movies, listen to music)",
+        ],
+        rewards: [
+          "Ability to communicate in a new language",
+          "Expanded cultural understanding",
+          "Improved cognitive abilities",
+        ],
+        isCompleted: false,
+      },
+      {
+        title: "Run a Marathon",
+        description:
+          "Train and complete a full marathon (42.195 km) within the next year.",
+        goal: "Run a full marathon",
+        steps: [
+          "Create a training plan",
+          "Gradually increase running distance",
+          "Incorporate strength and cross-training exercises",
+          "Participate in shorter races as preparation",
+          "Join a running group for support and motivation",
+        ],
+        rewards: [
+          "Improved cardiovascular fitness",
+          "Sense of accomplishment",
+          "Strengthened discipline and perseverance",
+        ],
+        isCompleted: false,
+      },
+    ];
+    this.quests.push({
+      title:
+        "Complete a 365-Day Photography Challenge and Capture One Unique Photo Every Day",
+      description:
+        "Immerse yourself in the world of photography by completing a 365-day challenge, capturing a unique photo each day.",
+      goal: "Complete a 365-Day Photography Challenge",
+      steps: [
+        "Choose a camera and familiarize yourself with its settings",
+        "Identify interesting subjects and compositions for your photos",
+        "Carry your camera with you everywhere",
+        "Capture one unique photo every day",
+        "Experiment with different techniques, lighting, and perspectives",
+        "Reflect on each photo and learn from the process",
+      ],
+      rewards: [
+        "Improved photography skills",
+        "Enhanced creativity",
+        "A collection of 365 unique photos",
+      ],
+      isCompleted: false,
+    });
+  }
 
-  setSelectedIdx(index: number) {
+  setSelectedIdx(index: number, questButtons: HTMLDivElement) {
     this.selectedIdx = index;
   }
 }

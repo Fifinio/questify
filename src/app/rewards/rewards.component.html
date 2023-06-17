@@ -1,1 +1,19 @@
-<p>rewards works!</p>
+<div class="flex flex-col justify-center items-center">
+  <h1 class="text-2xl m-auto">
+    Things you've achieved since starting questing
+  </h1>
+  <div class="stats bg-primary text-primary-content m-4">
+    <div class="stat">
+      <div class="stat-title text-primary-content">Rewards achieved</div>
+      <div class="stat-value">{{ rewards.length }}</div>
+      <div class="stat-desc text-accent">21 Rewards remaining!</div>
+    </div>
+  </div>
+
+  {{ rewards.length == 0 ? "no achievements found" : null }}
+  <ul class="list-none m-5" #rewardButtons>
+    <li class="m-2" *ngFor="let reward of rewards; let i = index">
+      {{ reward }}
+    </li>
+  </ul>
+</div>

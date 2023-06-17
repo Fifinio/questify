@@ -1,9 +1,22 @@
-<div class="flex flex-row justify-between">
-
-    {{quests.length == 0 ? "no quests found": null}}
-    <!-- buttons for each quest -->
-    <div class="flex-col w-1/3 m-20">
-        <button class="btn btn-ghost" *ngFor="let quest of quests; let i = index" (click)="setSelectedIdx(i)">{{quest.title}}</button>
-    </div>
-    <app-quest [quest]="quests[selectedIdx]"></app-quest>
+<div class="flex w-full">
+  {{ quests.length == 0 ? "no quests found" : null }}
+  <!-- buttons for each quest -->
+  <div class="flex-col w-1/4 m-5" #questButtons>
+    <button
+      class="btn btn-ghost w-full"
+      *ngFor="let quest of quests; let i = index"
+      (click)="setSelectedIdx(i, questButtons)"
+    >
+      {{
+        quest.title.length > 40
+          ? (quest.title | slice : 0 : 40) + "..."
+          : quest.title
+      }}
+    </button>
+    <div class="divider"></div>
+    <button class="btn w-full">
+      <b class="text-amber-400 text-xl">!</b> &nbsp; Embark on a new quest
+    </button>
+  </div>
+  <app-quest [quest]="quests[selectedIdx]" class="w-3/4 p-10"></app-quest>
 </div>
