@@ -6,9 +6,5 @@ import { Component } from "@angular/core";
   styleUrls: ["./rewards.component.scss"],
 })
 export class RewardsComponent {
-  rewards: string[] = [
-    "Expanded knowledge",
-    "Improved vocabulary",
-    "Enhanced critical thinking",
-  ];
+  rewards: string[] = [];
 }

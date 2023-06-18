@@ -8,6 +8,7 @@ import { RewardsComponent } from "./rewards/rewards.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { QuestsComponent } from "./quests/quests.component";
 import { HomeComponent } from "./home/home.component";
+import { QuestService } from "./quest.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { HomeComponent } from "./home/home.component";
     HomeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  providers: [QuestService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
